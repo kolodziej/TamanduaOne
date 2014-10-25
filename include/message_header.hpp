@@ -1,14 +1,14 @@
-#ifndef TAMANDUAONE_MESSAGE_HEADER_HPP
-#define TAMANDUAONE_MESSAGE_HEADER_HPP
+#ifndef TAMANDUA_MESSAGE_HEADER_HPP
+#define TAMANDUA_MESSAGE_HEADER_HPP
 
 #include "config/message_types.hpp"
-#include "config/tamanduaone_api.hpp"
+#include "config/tamandua_api.hpp"
 
-namespace tamanduaone {
+namespace tamandua {
 
-using tamanduaone::config;
+using tamandua::config;
 
-struct TAMANDUAONE_API MessageHeader
+struct TAMANDUA_API MessageHeader
 {
 	MessageId msg_id;
 	MessageType type;

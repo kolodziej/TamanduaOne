@@ -1,6 +1,6 @@
 #include "message_composer.hpp"
 
-using tamanduaone;
+using tamandua;
 
 MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::string author_name, GroupId group_id) :
 {

@@ -4,7 +4,7 @@
 #include "message_composer.hpp"
 #include "message_buffer.hpp"
 
-using tamanduaone;
+using tamandua;
 
 Message::Message()
 {}

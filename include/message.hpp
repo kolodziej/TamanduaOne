@@ -1,15 +1,15 @@
-#ifndef TAMANDUAONE_MESSAGE_HPP
-#define TAMANDUAONE_MESSAGE_HPP
+#ifndef TAMANDUA_MESSAGE_HPP
+#define TAMANDUA_MESSAGE_HPP
 #include <string>
-#include "config/tamanduaone_api.hpp"
+#include "config/tamandua_api.hpp"
 
-namespace tamanduaone {
+namespace tamandua {
 
 struct MessageHeader;
 class MessageComposer;
 class MessageBuffer;
 
-class TAMANDUAONE_API Message
+class TAMANDUA_API Message
 {
 	private:
 		MessageHeader header_;

@@ -1,10 +1,10 @@
-#ifndef TAMANDUAONE_MESSAGE_COMPOSER_HPP
-#define TAMANDUAONE_MESSAGE_COMPOSER_HPP
+#ifndef TAMANDUA_MESSAGE_COMPOSER_HPP
+#define TAMANDUA_MESSAGE_COMPOSER_HPP
 #include <sstream>
 
 #include "config/message_types.hpp"
 
-namespace tamanduaone {
+namespace tamandua {
 
 class Message;
 class MessageHeader;
