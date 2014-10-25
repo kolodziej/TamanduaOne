@@ -1,9 +1,10 @@
-#ifndef TAMANDUAONE_CONFIG_MESSAGE_TYPES_HPP
-#define TAMANDUAONE_CONFIG_MESSAGE_TYPES_HPP
+#ifndef TAMANDUA_CONFIG_MESSAGE_TYPES_HPP
+#define TAMANDUA_CONFIG_MESSAGE_TYPES_HPP
 #include <cstdint>
 
-namespace tamanduaone {
+namespace tamandua {
 namespace config {
+
 	typedef uint32_t MessageId;
 	enum MessageType : uint8_t {
 		InitMessage = 0,
@@ -22,6 +23,7 @@ namespace config {
 	typedef uint16_t MessageSize;
 	typedef uint16_t MessageOptions;
 	typedef uint8_t MessageByte;
+
 }
 }
 
