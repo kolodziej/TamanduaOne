@@ -5,7 +5,7 @@
 #include "message.hpp"
 #include "message_buffer.hpp"
 
-using tamandua;
+using namespace tamandua;
 
 MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::string author_name, GroupId group_id) :
 {

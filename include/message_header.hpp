@@ -6,7 +6,7 @@
 
 namespace tamandua {
 
-using tamandua::config;
+using namespace config;
 
 const size_t author_name_size = 40;
 

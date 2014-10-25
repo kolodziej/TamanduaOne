@@ -1,7 +1,7 @@
 #ifndef TAMANDUA_MESSAGE_COMPOSER_IMPL_HPP
 #define TAMANDUA_MESSAGE_COMPOSER_IMPL_HPP
 
-using tamandua;
+using namespace tamandua;
 
 template<typename Data>
 MessageComposer& MessageComposer::operator<<(Data data)

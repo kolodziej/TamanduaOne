@@ -1,13 +1,13 @@
 #ifndef TAMANDUA_MESSAGE_HPP
 #define TAMANDUA_MESSAGE_HPP
 #include <string>
+#include "message_header.hpp"
 #include "config/tamandua_api.hpp"
 
 namespace tamandua {
 
-struct MessageHeader;
 class MessageComposer;
-class MessageBuffer;
+class Buffer;
 
 class TAMANDUA_API Message
 {
@@ -17,16 +17,16 @@ class TAMANDUA_API Message
 
 	public:
 		Message();
-		Message(const MessageComposer &);
-		Message(const MessageBuffer &);
+		Message(MessageComposer &);
 		Message(const MessageHeader&, std::string);
 
 		MessageHeader header();
 		std::string body();
-		MessageBuffer toBuffer();
 		void setHeader(MessageHeader);
 		void setBody(std::string);
-		void fromBuffer(const MessageBuffer&);
+		void headerFromBuffer(Buffer);
+		void bodyFromBuffer(Buffer);
+		Buffer toBuffer();
 };
 
 }

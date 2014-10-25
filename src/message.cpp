@@ -1,22 +1,20 @@
 #include "message.hpp"
 
+#include <cstring>
+#include <string>
+
 #include "message_header.hpp"
 #include "message_composer.hpp"
-#include "message_buffer.hpp"
+#include "buffer.hpp"
 
-using tamandua;
+using namespace tamandua;
 
 Message::Message()
 {}
 
-Message::Message(const MessageComposer& composer) :
+Message::Message(MessageComposer& composer) :
 	header_(composer.message().header()),
 	body_(composer.message().body())
-{}
-
-Message::Message(const MessageBuffer& buffer) :
-	header_(buffer.message().header()),
-	body_(buffer.message().body())
 {}
 
 Message::Message(const MessageHeader& header, std::string body) :
@@ -34,11 +32,6 @@ std::string Message::body()
 	return body_;
 }
 
-MessageBuffer Message::toBuffer()
-{
-	return MessageBuffer(*this);
-}
-
 void Message::setHeader(MessageHeader header)
 {
 	header_ = header;
@@ -49,8 +42,21 @@ void Message::setBody(std::string body)
 	body_ = body;
 }
 
-void Message::fromBuffer(const MessageBuffer& buffer)
+void Message::headerFromBuffer(Buffer buf)
 {
-	header_ = buffer.message().header();
-	body_ = buffer.message().body();
+	memcpy(reinterpret_cast<void*>(&header_), reinterpret_cast<const void*>(buf.buffer().get()), sizeof(header_));
+}
+
+void Message::bodyFromBuffer(Buffer buf)
+{
+	body_ = std::string(buf.buffer().get(), buf.size());
+}
+
+Buffer Message::toBuffer()
+{
+	size_t size = sizeof(header_) + body_.length();
+	Buffer buf(size);
+	memcpy(reinterpret_cast<void*>(buf.buffer().get()), reinterpret_cast<const void*>(&header_), sizeof(header_));
+	memcpy(reinterpret_cast<void*>(buf.buffer().get() + sizeof(header_)), reinterpret_cast<const void*>(body_.data()), body_.size());
+	return buf;
 }
