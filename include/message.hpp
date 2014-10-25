@@ -16,10 +16,9 @@ class TAMANDUAONE_API Message
 		std::string body_;
 
 	public:
-		Message() = delete;
+		Message();
 		Message(const MessageComposer &);
 		Message(const MessageBuffer &);
-		Message(const Message &) = delete;
 		Message(const MessageHeader&, std::string);
 
 		MessageHeader header();

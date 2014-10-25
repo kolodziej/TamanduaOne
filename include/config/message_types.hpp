@@ -6,10 +6,15 @@ namespace tamanduaone {
 namespace config {
 	typedef uint32_t MessageId;
 	enum MessageType : uint8_t {
-		// types
+		InitMessage = 0,
+		StandardMessage = 1,
+		StatusMessage = 2,
+		GroupEnterMessage = 3,
+		GroupLeaveMessage = 4,
+		ExitMessage = 255
 	};
 	enum ErrorCode : uint8_t {
-		// error codes
+		Ok = 0, // no errors
 	};
 	typedef uint32_t AuthorId;
 	typedef uint16_t GroupId;
