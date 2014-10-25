@@ -16,4 +16,8 @@
 
 #endif
 
+#ifndef TAMANDUAONE_API
+#define TAMANDUAONE_API
+#endif
+
 #endif
