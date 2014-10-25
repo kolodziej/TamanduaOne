@@ -8,6 +8,8 @@ namespace tamandua {
 
 using tamandua::config;
 
+const size_t author_name_size = 40;
+
 struct TAMANDUA_API MessageHeader
 {
 	MessageId msg_id;
@@ -18,7 +20,7 @@ struct TAMANDUA_API MessageHeader
 	UTCTime utc_time;
 	MessageSize size;
 	MessageOptions options;
-	MessageByte author_name[40];
+	MessageByte author_name[author_name_size];
 };
 
 }
