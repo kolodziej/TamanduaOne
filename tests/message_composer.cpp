@@ -1,4 +1,4 @@
-#include "gtest/gtest.h"
+#include "gtest.h"
 #include "message.hpp"
 #include "message_composer.hpp"
 #include "config/message_types.hpp"
