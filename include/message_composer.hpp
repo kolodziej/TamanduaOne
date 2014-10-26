@@ -8,7 +8,6 @@ namespace tamandua {
 
 class Message;
 class MessageHeader;
-class MessageBuffer;
 
 class MessageComposer
 {
@@ -24,7 +23,6 @@ class MessageComposer
 		MessageComposer& operator<<(Data data);
 
 		Message message();
-		MessageBuffer buffer();
 };
 
 }

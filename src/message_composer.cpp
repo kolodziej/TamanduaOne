@@ -3,7 +3,6 @@
 #include <cstring>
 
 #include "message.hpp"
-#include "message_buffer.hpp"
 
 using namespace tamandua;
 
@@ -37,7 +36,3 @@ Message MessageComposer::message()
 	return Message(header_, msg_body);
 }
 
-MessageBuffer MessageComposer::buffer()
-{
-	return MessageBuffer(*this);
-}
