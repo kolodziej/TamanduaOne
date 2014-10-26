@@ -7,7 +7,7 @@
 #include "message_composer.hpp"
 #include "buffer.hpp"
 
-using namespace tamandua;
+namespace tamandua {
 
 Message::Message()
 {}
@@ -68,3 +68,5 @@ Buffer Message::toBuffer()
 	memcpy(reinterpret_cast<void*>(buf.buffer().get() + sizeof(header_)), reinterpret_cast<const void*>(body_.data()), body_.size());
 	return buf;
 }
+
+} // namespace tamandua

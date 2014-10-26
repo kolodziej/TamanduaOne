@@ -1,6 +1,6 @@
 #include "buffer.hpp"
 
-using namespace tamandua;
+namespace tamandua {
 
 Buffer::Buffer(size_t size)	:	
 	buffer_(new char[size], [](char* ptr) { delete[] ptr; }),
@@ -16,3 +16,5 @@ size_t Buffer::size()
 {
 	return buffer_size_;
 }
+
+} // namespace tamandua

@@ -16,8 +16,8 @@ class MessageComposer
 		std::stringstream body_stream_;
 
 	public:
-		MessageComposer(MessageType, AuthorId = 0, std::string = std::string(), GroupId = 0);
-		MessageComposer(MessageType, std::string, AuthorId = 0, std::string = std::string(), GroupId = 0);
+		MessageComposer(config::MessageType, config::AuthorId = 0, std::string = std::string(), config::GroupId = 0);
+		MessageComposer(config::MessageType, std::string, config::AuthorId = 0, std::string = std::string(), config::GroupId = 0);
 
 		template <typename Data>
 		MessageComposer& operator<<(Data data);

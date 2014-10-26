@@ -4,10 +4,9 @@
 
 #include "message.hpp"
 
-using namespace tamandua;
-using namespace tamandua::config;
+namespace tamandua {
 
-MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::string author_name, GroupId group_id)
+MessageComposer::MessageComposer(config::MessageType type, config::AuthorId author_id, std::string author_name, config::GroupId group_id)
 {
 	header_.type = type;
 	header_.author_id = author_id;
@@ -18,7 +17,7 @@ MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::stri
 	header_.group_id = group_id;
 }
 
-MessageComposer::MessageComposer(MessageType type, std::string data, AuthorId author_id, std::string author_name, GroupId group_id)
+MessageComposer::MessageComposer(config::MessageType type, std::string data, config::AuthorId author_id, std::string author_name, config::GroupId group_id)
 {
 	header_.type = type;
 	header_.author_id = author_id;
@@ -37,3 +36,4 @@ Message MessageComposer::message()
 	return Message(header_, msg_body);
 }
 
+} // namespace tamandua
