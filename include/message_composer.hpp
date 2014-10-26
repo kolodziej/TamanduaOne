@@ -3,11 +3,11 @@
 #include <sstream>
 
 #include "config/message_types.hpp"
+#include "message_header.hpp"
 
 namespace tamandua {
 
 class Message;
-class MessageHeader;
 
 class MessageComposer
 {

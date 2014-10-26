@@ -20,7 +20,7 @@ struct TAMANDUA_API MessageHeader
 	UTCTime utc_time;
 	MessageSize size;
 	MessageOptions options;
-	MessageByte author_name[author_name_size];
+	char author_name[author_name_size];
 };
 
 }

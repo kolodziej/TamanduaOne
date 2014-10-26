@@ -22,7 +22,6 @@ namespace config {
 	typedef uint32_t UTCTime;
 	typedef uint16_t MessageSize;
 	typedef uint16_t MessageOptions;
-	typedef uint8_t MessageByte;
 
 }
 }

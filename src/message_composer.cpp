@@ -5,8 +5,9 @@
 #include "message.hpp"
 
 using namespace tamandua;
+using namespace tamandua::config;
 
-MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::string author_name, GroupId group_id) :
+MessageComposer::MessageComposer(MessageType type, AuthorId author_id, std::string author_name, GroupId group_id)
 {
 	header_.type = type;
 	header_.author_id = author_id;

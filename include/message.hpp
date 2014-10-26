@@ -20,9 +20,9 @@ class TAMANDUA_API Message
 		Message(MessageComposer &);
 		Message(const MessageHeader&, std::string);
 
-		MessageHeader header();
+		MessageHeader& header();
 		std::string body();
-		void setHeader(MessageHeader);
+		void setHeader(const MessageHeader&);
 		void setBody(std::string);
 		void headerFromBuffer(Buffer);
 		void bodyFromBuffer(Buffer);

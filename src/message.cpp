@@ -22,7 +22,7 @@ Message::Message(const MessageHeader& header, std::string body) :
 	body_(body)
 {}
 
-MessageHeader Message::header()
+MessageHeader& Message::header()
 {
 	return header_;
 }
@@ -32,9 +32,17 @@ std::string Message::body()
 	return body_;
 }
 
-void Message::setHeader(MessageHeader header)
+void Message::setHeader(const MessageHeader& header)
 {
-	header_ = header;
+	header_.msg_id = header.msg_id;
+	header_.type = header.type;
+	header_.error_code = header.error_code;
+	header_.author_id = header.author_id;
+	header_.group_id = header.group_id;
+	header_.utc_time = header.utc_time;
+	header_.size = header.size;
+	header_.options = header.options;
+	strncpy(header_.author_name, header.author_name, 40);
 }
 
 void Message::setBody(std::string body)
