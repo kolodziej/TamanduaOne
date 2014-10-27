@@ -4,8 +4,11 @@ project(TamanduaONE)
 
 include_directories(
 	"${PROJECT_SOURCE_DIR}/include"
+	"${PROJECT_SOURCE_DIR}/gtest"
 	"${PROJECT_SOURCE_DIR}"
 )
+
+add_subdirectory(gtest)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 set(CMAKE_CXX_FLAGS "-std=c++11")
