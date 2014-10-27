@@ -2,6 +2,7 @@
 #define TAMANDUA_MESSAGE_COMPOSER_HPP
 #include <sstream>
 
+
 #include "config/message_types.hpp"
 #include "message_header.hpp"
 
@@ -9,7 +10,7 @@ namespace tamandua {
 
 class Message;
 
-class MessageComposer
+class TAMANDUA_API MessageComposer
 {
 	private:
 		MessageHeader header_;
