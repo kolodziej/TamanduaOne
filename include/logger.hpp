@@ -2,7 +2,7 @@
 #define TAMANDUA_LOGGER_HPP
 
 #include <cstdint>
-#include <vector>
+#include <map>
 #include <memory>
 #include <string>
 #include <ostream>
@@ -13,13 +13,19 @@ namespace tamandua {
 
 class TAMANDUA_API Logger
 {
+	public:
+		enum LoggerPolicy : uint8_t
+		{
+		};
+
 	private:
-		static std::vector<std::shared_ptr<Logger>> loggers_;
-		uint32_t logging_policy_;
+		static std::map<std::string, Logger*> loggers_;
+		std::string name_;
+		LoggingPolicy logging_policy_;
 		std::ostream& output_;
 
 	public:
-		Logger(std::string, uint32_t);
+		Logger(std::string, uint8_t, std::ostream&);
 
 		template <typename T>
 		Logger& operator<<(T data);
