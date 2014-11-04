@@ -2,26 +2,30 @@
 
 #include <stdexcept>
 
-namespace tamandua {
+namespace tamandua { namespace logger {
 
 Logger::Logger(std::string name, uint8_t policy, std::ostream& output) :
 	name_(name),
 	logging_policy_(policy),
 	output_(output)
 {
-	loggers_.insert(std::make_pair(name, this));
+	auto insertion = loggers_.insert(std::make_pair(name, this));
+	if (insertion.second == false)
+	{
+		throw std::logic_error("logger could not be created");
+	}
 }
 
-static Logger& Logger::getLogger(std::string name)
+Logger& Logger::getLogger(std::string name)
 {
 	auto it = loggers_.find(name);
 	if (it != loggers_.end())
 	{
-		return *(*it);
+		return *(it->second);
 	} else
 	{
 		throw std::logic_error("logger does not exists!");
 	}
 }
 
-}
+} }

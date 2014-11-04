@@ -1,7 +1,6 @@
-#ifndef TAMANDUA_LOGGER_IMPL_HPP
-#define TAMANDUA_LOGGER_IMPL_HPP
+#ifdef TAMANDUA_LOGGER_LOGGER_HPP
 
-namespace tamandua {
+namespace tamandua { namespace logger {
 
 template<typename T>
 Logger& Logger::operator<<(T data)
@@ -10,6 +9,6 @@ Logger& Logger::operator<<(T data)
 	return *this;
 }
 
-}
+} }
 
 #endif
