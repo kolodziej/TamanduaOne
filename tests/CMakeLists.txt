@@ -18,3 +18,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests/bin")
 
 add_executable(message_composer message_composer.cpp)
 target_link_libraries(message_composer "${LINK_LIBS}")
+
+add_executable(logger logger.cpp)
+target_link_libraries(logger "${LINK_LIBS}")

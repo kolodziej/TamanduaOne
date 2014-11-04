@@ -6,10 +6,13 @@
 #include <memory>
 #include <string>
 #include <ostream>
+#include <mutex>
 
 #include "config/tamandua_api.hpp"
 
 namespace tamandua { namespace logger {
+
+class Log;
 
 class TAMANDUA_API Logger
 {
@@ -22,8 +25,9 @@ class TAMANDUA_API Logger
 			Events = 1 << 3,
 			DevelopmentBasic = 1 << 4,
 			DevelopmentAdvanced = 1 << 5,
-			DevelomentExpert = 1 << 6,
+			DevelopmentExpert = 1 << 6,
 			DevelopmentAll = 1 << 7,
+			All = 255,
 		};
 
 	private:
@@ -31,18 +35,15 @@ class TAMANDUA_API Logger
 		std::string name_;
 		uint8_t logging_policy_;
 		std::ostream& output_;
+		std::mutex logging_lock_;
 
 	public:
 		Logger(std::string, uint8_t, std::ostream&);
-
-		template <typename T>
-		Logger& operator<<(T data);
-
 		static Logger& getLogger(std::string);
+
+		void log(Log&);
 };
 
 } }
-
-#include "impl/logger.impl.hpp"
 
 #endif

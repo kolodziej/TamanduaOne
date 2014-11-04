@@ -19,6 +19,8 @@ set(PROTOCOL_SOURCES
 	"src/message.cpp"
 	"src/message_composer.cpp"
 	"src/buffer.cpp"
+	"src/logger/logger.cpp"
+	"src/logger/log.cpp"
 )
 
 set(PROTOCOL_HEADERS
@@ -27,7 +29,11 @@ set(PROTOCOL_HEADERS
 	"include/message.hpp"
 	"include/message_header.hpp"
 	"include/message_composer.hpp"
+	"impl/message_composer.impl.hpp"
 	"include/buffer.hpp"
+	"include/logger/logger.hpp"
+	"include/logger/log.hpp"
+	"impl/logger/log.impl.hpp"
 )
 
 if(ONLY_PROTOCOL)

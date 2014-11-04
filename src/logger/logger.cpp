@@ -1,8 +1,13 @@
-#include "logger.hpp"
+#include "logger/logger.hpp"
 
 #include <stdexcept>
+#include <string>
+
+#include "logger/log.hpp"
 
 namespace tamandua { namespace logger {
+
+std::map<std::string, Logger*> Logger::loggers_;
 
 Logger::Logger(std::string name, uint8_t policy, std::ostream& output) :
 	name_(name),
@@ -25,6 +30,14 @@ Logger& Logger::getLogger(std::string name)
 	} else
 	{
 		throw std::logic_error("logger does not exists!");
+	}
+}
+
+void Logger::log(Log& l)
+{
+	if (l.policy() & logging_policy_)
+	{
+		output_ << static_cast<std::string>(l) << "\n";
 	}
 }
 
