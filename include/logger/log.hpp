@@ -18,14 +18,18 @@ class Log
 		template <typename T>
 		Log& operator<<(T);
 
+		void append();
+		template <typename T, typename... R>
+		void append(T, R...);
+
 		std::string toString();
 		operator std::string();
 		
 		uint8_t policy();
 };
 
-#include "impl/logger/log.impl.hpp"
-
 } }
+
+#include "impl/logger/log.impl.hpp"
 
 #endif

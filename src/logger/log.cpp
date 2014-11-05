@@ -19,6 +19,11 @@ Log::operator std::string()
 	return toString();
 }
 
+void Log::append()
+{
+	
+}
+
 uint8_t Log::policy()
 {
 	return policy_;

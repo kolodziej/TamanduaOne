@@ -17,17 +17,24 @@ class Log;
 class TAMANDUA_API Logger
 {
 	public:
-		enum LoggerPolicy : uint8_t
+		enum Policy : uint8_t
 		{
-			Errors = 1 << 0,
+			StandardLog = 1 << 0,
 			Warnings = 1 << 1,
-			Logs = 1 << 2,
-			Events = 1 << 3,
-			DevelopmentBasic = 1 << 4,
-			DevelopmentAdvanced = 1 << 5,
-			DevelopmentExpert = 1 << 6,
-			DevelopmentAll = 1 << 7,
-			All = 255,
+			Errors = 1 << 2,
+			DebugBasic = 1 << 3,
+			DebugAdvanced = 1 << 4,
+			DebugExpert = 1 << 5,
+		};
+
+		enum PolicySet : uint8_t
+		{
+			BasicLog = StandardLog | Errors,
+			ExtendedLog = StandardLog | Warnings | Errors,
+			DebugL1 = StandardLog | Warnings | Errors | DebugBasic,
+			DebugL2 = StandardLog | Warnings | Errors | DebugBasic | DebugAdvanced,
+			DebugL3 = StandardLog | Warnings | Errors | DebugBasic | DebugAdvanced | DebugExpert,
+			OnlyDebug = DebugBasic | DebugAdvanced | DebugExpert,
 		};
 
 	private:
