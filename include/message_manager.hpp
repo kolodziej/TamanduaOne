@@ -44,7 +44,7 @@ class MessageManager
 		void sendingThread();
 
 	private:
-		config::MessageId getNextMessageId_();
+		config::MessageId nextMessageId_();
 		void fillHeader_(Message&);
 		
 };

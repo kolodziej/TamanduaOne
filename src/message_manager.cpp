@@ -2,6 +2,7 @@
 
 #include "server.hpp"
 #include "message.hpp"
+#include "participant_manager.hpp"
 
 namespace tamandua {
 
@@ -65,7 +66,7 @@ void MessageManager::sendingThread()
 	}
 }
 
-config::MessageId MessageManager::getNextMessageId_()
+config::MessageId MessageManager::nextMessageId_()
 {
 	return ++last_message_id_;
 }
@@ -73,7 +74,7 @@ config::MessageId MessageManager::getNextMessageId_()
 void MessageManager::fillHeader_(Message& message)
 {
 	MessageHeader &header = message.header();
-	header.msg_id = getNextMessageId_();
+	header.msg_id = nextMessageId_();
 	// @todo: header.utc_time =
 }
 
