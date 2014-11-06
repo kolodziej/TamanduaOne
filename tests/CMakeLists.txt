@@ -12,7 +12,7 @@ include_directories(
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
-set(LINK_LIBS gtest gtest_main pthread tamandua_protocol)
+set(LINK_LIBS gtest gtest_main pthread tamandua)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests/bin")
 
