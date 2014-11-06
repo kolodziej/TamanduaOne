@@ -4,12 +4,15 @@
 #include "config/message_types.hpp"
 
 #include <string>
+#include <memory>
 
 namespace tamandua {
 
 typedef config::AuthorId ParticipantId;
+class ParticipantManager;
 
-class Participant
+class Participant :
+	public std::enable_shared_from_this<Participant>
 {
 	private:
 		ParticipantId id_;
@@ -18,6 +21,8 @@ class Participant
 		bool hidden_;
 
 	public:
+		friend class ParticipantManager;
+
 		Participant(std::string = std::string(), ParticipantId = 0);
 
 		ParticipantId id();
