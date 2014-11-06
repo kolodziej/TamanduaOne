@@ -26,6 +26,7 @@ set(LIBRARY_SOURCES
 	"src/logger.cpp"
 	"src/message_manager.cpp"
 	"src/participant.cpp"
+	"src/participant_manager.cpp"
 )
 
 set(PROTOCOL_HEADERS
@@ -45,6 +46,9 @@ set(LIBRARY_HEADERS
 	"impl/logger.impl.hpp"
 	"include/message_manager.hpp"
 	"include/participant.hpp"
+	"include/server.hpp"
+	"include/server_settings.hpp"
+	"include/participant_manager.hpp"
 )
 	add_library(tamandua_protocol STATIC ${PROTOCOL_HEADERS} ${PROTOCOL_SOURCES})
 		
