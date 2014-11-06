@@ -1,38 +1,42 @@
 #include "gtest/gtest.h"
-#include "logger/logger.hpp"
-#include "logger/log.hpp"
+#include "logger.hpp"
 
 #include <iostream>
+#include <sstream>
+#include <thread>
 
-using tamandua::logger::Logger;
-using tamandua::logger::Log;
+using tamandua::Logger;
 
 TEST(Logger, Basic)
 {
-	Logger test_logger("testlogger", Logger::All, std::cerr);
-	Log log1(Logger::DevelopmentAdvanced), log2(Logger::Errors | Logger::Warnings);
-	log1 << "Testing log data: " << 1234;
-	log2 << "Test log data: " << 12.34;
-
-	test_logger.log(log1);
-	test_logger.log(log2);
+	Logger test_logger("testlogger", Logger::DebugL3, std::cerr);
+	test_logger.log(Logger::StandardLog, "Standard log ", "in Tamandua Logger");
+	test_logger.log(Logger::Error, "Error log: ", 12.12);
 }
 
-TEST(Logger, Advanced)
+TEST(Logger, ThreadSafety)
 {
-	Logger test_logger("onlyadv", Logger::DevelopmentBasic | Logger::DevelopmentAdvanced | Logger::DevelopmentExpert, std::cerr);
-	Log log_basic(Logger::DevelopmentBasic),
-		log_adv(Logger::DevelopmentAdvanced),
-		log_exp(Logger::DevelopmentExpert),
-		log_other(Logger::Errors);
+	std::stringstream log;
+	Logger test_logger("testlogger2", Logger::BasicLog, log);
 
-	log_basic << "Basic log [should be!]";
-	log_adv << "Advanced log [should be!]";
-	log_exp << "Expert log [should be!]";
-	log_other << "Other log [must not be!]";
+	auto lambda_func = [&](const char* str, int num = 500000) {
+		for (int i = 0; i < num; ++i)
+		{
+			test_logger.log(Logger::StandardLog, str, str, str, str, str);
+		}
+	};
+	std::thread threadA(lambda_func, "A");
+	std::thread threadB(lambda_func, "B");
+	std::thread threadC(lambda_func, "C");
+	
+	threadA.join();
+	threadB.join();
+	threadC.join();
 
-	test_logger.log(log_basic);
-	test_logger.log(log_adv);
-	test_logger.log(log_exp);
-	test_logger.log(log_other);
+	std::string log_line;
+	while (std::getline(log, log_line))
+	{
+		ASSERT_TRUE(log_line == std::string("<STDLOG>: AAAAA") || log_line == std::string("<STDLOG>: BBBBB") || log_line == std::string("<STDLOG>: CCCCC"));
+	}
 }
+

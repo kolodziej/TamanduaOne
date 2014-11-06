@@ -1,11 +1,9 @@
-#include "logger/logger.hpp"
+#include "logger.hpp"
 
 #include <stdexcept>
 #include <string>
 
-#include "logger/log.hpp"
-
-namespace tamandua { namespace logger {
+namespace tamandua {
 
 std::map<std::string, Logger*> Logger::loggers_;
 
@@ -33,12 +31,4 @@ Logger& Logger::getLogger(std::string name)
 	}
 }
 
-void Logger::log(Log& l)
-{
-	if (l.policy() & logging_policy_)
-	{
-		output_ << static_cast<std::string>(l) << "\n";
-	}
 }
-
-} }

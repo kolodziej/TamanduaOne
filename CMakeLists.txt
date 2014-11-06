@@ -19,11 +19,11 @@ set(PROTOCOL_SOURCES
 	"src/message.cpp"
 	"src/message_composer.cpp"
 	"src/buffer.cpp"
-	"src/logger/logger.cpp"
-	"src/logger/log.cpp"
+	"src/logger.cpp"
 )
 
 set(PROTOCOL_HEADERS
+	"include/config/logger.hpp"
 	"include/config/message_types.hpp"
 	"include/config/tamandua_api.hpp"
 	"include/message.hpp"
@@ -31,9 +31,8 @@ set(PROTOCOL_HEADERS
 	"include/message_composer.hpp"
 	"impl/message_composer.impl.hpp"
 	"include/buffer.hpp"
-	"include/logger/logger.hpp"
-	"include/logger/log.hpp"
-	"impl/logger/log.impl.hpp"
+	"include/logger.hpp"
+	"impl/logger.impl.hpp"
 )
 
 if(ONLY_PROTOCOL)
