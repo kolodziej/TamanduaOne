@@ -19,14 +19,18 @@ set(PROTOCOL_SOURCES
 	"src/message.cpp"
 	"src/message_composer.cpp"
 	"src/buffer.cpp"
+	"src/config/constants.cpp"
 )
 
 set(LIBRARY_SOURCES
 	"src/logger.cpp"
+	"src/message_manager.cpp"
+	"src/participant.cpp"
 )
 
 set(PROTOCOL_HEADERS
 	"include/config/message_types.hpp"
+	"include/config/constants.hpp"
 	"include/message.hpp"
 	"include/message_header.hpp"
 	"include/message_composer.hpp"
@@ -39,6 +43,8 @@ set(LIBRARY_HEADERS
 	"include/config/logger.hpp"
 	"include/logger.hpp"
 	"impl/logger.impl.hpp"
+	"include/message_manager.hpp"
+	"include/participant.hpp"
 )
 	add_library(tamandua_protocol STATIC ${PROTOCOL_HEADERS} ${PROTOCOL_SOURCES})
 		
