@@ -54,6 +54,7 @@ void MessageManager::processingThread()
 
 void MessageManager::sendingThread()
 {
+	ParticipantManager &pm = server().participantManager();
 	while (sending_thread_run_)
 	{
 		// sending messages
@@ -67,6 +68,13 @@ void MessageManager::sendingThread()
 config::MessageId MessageManager::getNextMessageId_()
 {
 	return ++last_message_id_;
+}
+
+void MessageManager::fillHeader_(Message& message)
+{
+	MessageHeader &header = message.header();
+	header.msg_id = getNextMessageId_();
+	// @todo: header.utc_time =
 }
 
 }

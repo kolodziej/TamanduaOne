@@ -20,8 +20,6 @@ class Server
 		ModuleManager module_manager_;
 		CommandInterpreter command_interpreter_;
 
-		std::thread processing_thread_;
-		std::thread supervisor_thread_;
 		std::thread io_service_thread_;
 
 	public:
@@ -35,8 +33,6 @@ class Server
 		ModuleManager& moduleManager();
 		CommandInterpreter& commandInterpreter();
 
-		void processingThread();
-		void supervisorThread();
 };
 
 } // namespace tamandua
