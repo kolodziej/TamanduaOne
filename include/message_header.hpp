@@ -3,10 +3,9 @@
 
 #include "config/message_types.hpp"
 #include "config/tamandua_api.hpp"
+#include "config/constants.hpp"
 
 namespace tamandua {
-
-const size_t author_name_size = 40;
 
 struct TAMANDUA_API MessageHeader
 {
@@ -18,7 +17,7 @@ struct TAMANDUA_API MessageHeader
 	config::UTCTime utc_time;
 	config::MessageSize size;
 	config::MessageOptions options;
-	char author_name[author_name_size];
+	char author_name[config::participant_name_size];
 };
 
 }

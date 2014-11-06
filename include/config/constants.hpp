@@ -3,7 +3,7 @@
 
 namespace tamandua { namespace config {
 
-extern const unsigned int participant_name_size;
+const unsigned int participant_name_size = 40;
 
 } }
 
