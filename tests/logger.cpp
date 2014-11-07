@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "logger.hpp"
+#include "config/logger.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -40,3 +41,14 @@ TEST(Logger, ThreadSafety)
 	}
 }
 
+TEST(Logger, Macros)
+{
+	Logger logger("testlogger", Logger::DebugL3, std::cerr);
+	Log("testlogger", StandardLog, "StandardLog ", "Log macro");
+	StdLog("testlogger", "StandardLog ", "StdLog macro");
+	WarningLog("testlogger", "WarningLog ", "WarningLog macro");
+	ErrorLog("testlogger", "ErrorLog ", "ErrorLog macro");
+	DebugBasicLog("testlogger", "Debug Basic ", "DebugBasicLog macro");
+	DebugAdvancedLog("testlogger", "Debug Avanced ", "DebugAdvancedLog macro");
+	DebugExpertLog("testlogger", "Debug Expert ", "DebugExpertLog macro");
+}
