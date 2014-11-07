@@ -7,7 +7,7 @@
 
 namespace tamandua {
 
-MessageComposer::MessageComposer(config::MessageType type, config::AuthorId author_id, std::string author_name, config::GroupId group_id)
+MessageComposer::MessageComposer(config::MessageType type, config::ParticipantId author_id, std::string author_name, config::GroupId group_id)
 {
 	header_.type = type;
 	header_.author_id = author_id;
@@ -18,7 +18,7 @@ MessageComposer::MessageComposer(config::MessageType type, config::AuthorId auth
 	header_.group_id = group_id;
 }
 
-MessageComposer::MessageComposer(config::MessageType type, std::string data, config::AuthorId author_id, std::string author_name, config::GroupId group_id)
+MessageComposer::MessageComposer(config::MessageType type, std::string data, config::ParticipantId author_id, std::string author_name, config::GroupId group_id)
 {
 	header_.type = type;
 	header_.author_id = author_id;

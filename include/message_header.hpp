@@ -12,7 +12,7 @@ struct TAMANDUA_API MessageHeader
 	config::MessageId msg_id;
 	config::MessageType type;
 	config::ErrorCode error_code;
-	config::AuthorId author_id;
+	config::ParticipantId author_id;
 	config::GroupId group_id;
 	config::UTCTime utc_time;
 	config::MessageSize size;

@@ -17,7 +17,7 @@ namespace config {
 	enum ErrorCode : uint8_t {
 		Ok = 0, // no errors
 	};
-	typedef uint32_t AuthorId;
+	typedef uint32_t ParticipantId;
 	typedef uint16_t GroupId;
 	typedef uint32_t UTCTime;
 	typedef uint16_t MessageSize;
