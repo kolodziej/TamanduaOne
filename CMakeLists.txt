@@ -19,7 +19,6 @@ set(PROTOCOL_SOURCES
 	"src/message.cpp"
 	"src/message_composer.cpp"
 	"src/buffer.cpp"
-	"src/config/constants.cpp"
 )
 
 set(LIBRARY_SOURCES

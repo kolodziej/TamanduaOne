@@ -3,6 +3,7 @@
 #include <cstring>
 
 #include "message.hpp"
+#include "config/constants.hpp"
 
 namespace tamandua {
 
@@ -12,7 +13,7 @@ MessageComposer::MessageComposer(config::MessageType type, config::AuthorId auth
 	header_.author_id = author_id;
 	if (author_name.empty() == false)
 	{
-		strcpy(header_.author_name, author_name.substr(0,author_name_size).data());
+		strcpy(header_.author_name, author_name.substr(0, config::participant_name_size).data());
 	}
 	header_.group_id = group_id;
 }
@@ -23,7 +24,7 @@ MessageComposer::MessageComposer(config::MessageType type, std::string data, con
 	header_.author_id = author_id;
 	if (author_name.empty() == false)
 	{
-		strcpy(header_.author_name, author_name.substr(0,author_name_size).data());
+		strcpy(header_.author_name, author_name.substr(0, config::participant_name_size).data());
 	}
 	header_.group_id = group_id;
 	body_stream_ << data;
