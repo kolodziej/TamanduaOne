@@ -2,7 +2,7 @@
 #define TAMANDUA_SERVER_HPP
 
 #include "server_settings.hpp"
-#include "particiapant_manager.hpp"
+#include "participant_manager.hpp"
 #include "group_manager.hpp"
 #include "session_manager.hpp"
 #include "module_manager.hpp"

@@ -8,14 +8,13 @@
 
 namespace tamandua {
 
-typedef config::AuthorId ParticipantId;
 class ParticipantManager;
 
 class Participant :
 	public std::enable_shared_from_this<Participant>
 {
 	private:
-		ParticipantId id_;
+		config::ParticipantId id_;
 		std::string name_;
 		bool online_;
 		bool hidden_;
@@ -25,7 +24,7 @@ class Participant :
 
 		Participant(std::string = std::string(), ParticipantId = 0);
 
-		ParticipantId id();
+		config::ParticipantId id();
 		std::string name();
 		void setName(std::string);
 
