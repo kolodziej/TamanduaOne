@@ -6,7 +6,8 @@
 namespace tamandua {
 
 ParticipantManager::ParticipantManager(Server& server) :
-	server_(server)
+	server_(server),
+	last_participant_id_(0)
 {}
 
 bool ParticipantManager::addParticipant(std::shared_ptr<Participant> participant)
@@ -24,9 +25,57 @@ bool ParticipantManager::addParticipant(std::shared_ptr<Participant> participant
 			return true;
 		} else
 		{
-			// @todo: proper exception: insertion == true, insertion_id == false
+			participants_.erase(insertion.first);
+			return false;
 		}
 	}
+	return false;
+}
+
+bool ParticipantManager::removeParticipant(std::shared_ptr<Participant> participant)
+{
+	if (participant == nullptr)
+	{
+		return false;
+	}
+	return removeParticipant(participant->id());
+}
+
+bool ParticipantManager::removeParticipant(config::ParticipantId id)
+{
+	auto pt_it = participants_.find(id);
+	if (pt_it != participants_.end())
+	{
+		std::string name = pt_it->second->name();
+		participants_.erase(pt_it);
+		if (participants_ids_.erase(name))
+		{
+			return true;
+		} else
+		{
+			// @todo: proper exception; as above
+		}
+	}
+
+	return false;
+}
+
+bool ParticipantManager::removeParticipant(std::string name)
+{
+	auto pt_id_it = participants_ids_.find(name);
+	if (pt_id_it != participants_ids_.end())
+	{
+		config::ParticipantId id = pt_id_it->second;
+		participants_ids_.erase(pt_id_it);
+		if (participants_.erase(id))
+		{
+			return true;
+		} else
+		{
+			// @todo: proper exception; as above
+		}
+	}
+	
 	return false;
 }
 
@@ -61,6 +110,11 @@ bool ParticipantManager::lockName(std::string name)
 bool ParticipantManager::unlockName(std::string name)
 {
 	return static_cast<bool>(locked_names_.erase(name));
+}
+
+const std::map<config::ParticipantId, std::shared_ptr<Participant>>& ParticipantManager::participants()
+{
+	return participants_;
 }
 
 void ParticipantManager::setParticipantId_(std::shared_ptr<Participant> participant)

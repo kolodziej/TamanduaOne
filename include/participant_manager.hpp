@@ -25,10 +25,16 @@ class ParticipantManager
 	public:
 		ParticipantManager(Server&);
 		bool addParticipant(std::shared_ptr<Participant>);
+		bool removeParticipant(std::shared_ptr<Participant>);
+		bool removeParticipant(config::ParticipantId);
+		bool removeParticipant(std::string);
+
 		bool isNameInUse(std::string);
 		bool isNameLocked(std::string);
 		bool lockName(std::string);
 		bool unlockName(std::string);
+
+		const std::map<config::ParticipantId, std::shared_ptr<Participant>>& participants();
 
 	private:
 		void setParticipantId_(std::shared_ptr<Participant>);

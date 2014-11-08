@@ -24,9 +24,10 @@ class GroupManager
 		GroupManager(Server&);
 		GroupManager(const GroupManager&) = delete;
 
-		void addGroup(std::shared_ptr<Group>);
-		void closeGroup(config::GroupId);
-		void closeGroup(std::string);
+		bool addGroup(std::shared_ptr<Group>);
+		bool removeGroup(std::shared_ptr<Group>);
+		bool removeGroup(config::GroupId);
+		bool removeGroup(std::string);
 
 	private:
 		config::GroupId nextGroupId_();
