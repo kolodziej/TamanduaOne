@@ -34,6 +34,11 @@ class Participant :
 		void show();
 		void hide();
 
+		const config::ParticipantType type()
+		{
+			return config::Participant;
+		}
+
 	friend class ParticipantManager;
 };
 
