@@ -4,14 +4,14 @@
 
 namespace tamandua {
 
-Participant::Participant(std::string name, ParticipantId id) :
+Participant::Participant(std::string name, config::ParticipantId id) :
 	id_(id),
 	name_(name),
 	online_(false),
 	hidden_(false)
 {}
 
-ParticipantId Participant::id()
+config::ParticipantId Participant::id()
 {
 	return id_;
 }

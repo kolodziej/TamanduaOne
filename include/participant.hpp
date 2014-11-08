@@ -1,7 +1,7 @@
 #ifndef TAMANDUA_PARTICIPANT_HPP
 #define TAMANDUA_PARTICIPANT_HPP
 
-#include "config/message_types.hpp"
+#include "config/participant.hpp"
 
 #include <string>
 #include <memory>
@@ -20,9 +20,7 @@ class Participant :
 		bool hidden_;
 
 	public:
-		friend class ParticipantManager;
-
-		Participant(std::string = std::string(), ParticipantId = 0);
+		Participant(std::string = std::string(), config::ParticipantId = 0);
 
 		config::ParticipantId id();
 		std::string name();
@@ -35,6 +33,8 @@ class Participant :
 		bool shown();
 		void show();
 		void hide();
+
+	friend class ParticipantManager;
 };
 
 }
