@@ -32,7 +32,7 @@ class MessageManager
 		bool sending_thread_run_;
 
 	public:
-		MessageManager();
+		MessageManager(Server&);
 		~MessageManager();
 		MessageManager(const MessageManager&) = delete;
 

@@ -6,16 +6,16 @@
 
 namespace tamandua {
 
-MessageManager::MessageManager() :
-	processing_thread_(true),
-	sending_thread_(true)
+MessageManager::MessageManager(Server& server) :
+	server_(server),
+	processing_thread_run_(true),
+	sending_thread_run_(true)
 {}
 
 MessageManager::~MessageManager()
 {
-	processing_thread_ = false;
-	sending_thread_ = false;
-	
+	processing_thread_run_ = false;
+	sending_thread_run_ = false;
 }
 
 Server& MessageManager::server()
@@ -43,11 +43,12 @@ void MessageManager::sendMessage(Message& message)
 
 void MessageManager::processingThread()
 {
+	std::unique_lock<std::mutex> processing_ulock_(process_queue_lock_);
 	while (processing_thread_run_)
 	{
 		// procesing messages
 
-		process_cv_.wait(process_queue_lock_, [this]() {
+		process_cv_.wait(processing_ulock_, [this]()->bool {
 			return (process_queue_.empty() == false || processing_thread_run_ == false);
 		});
 	}
@@ -56,11 +57,12 @@ void MessageManager::processingThread()
 void MessageManager::sendingThread()
 {
 	ParticipantManager &pm = server().participantManager();
+	std::unique_lock<std::mutex> sending_ulock_(send_queue_lock_);
 	while (sending_thread_run_)
 	{
 		// sending messages
 
-		send_cv_.wait(send_queue_lock_, [this]() {
+		send_cv_.wait(sending_ulock_, [this]() {
 			return (send_queue_.empty() == false || sending_thread_run_ == false);
 		});
 	}

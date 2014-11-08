@@ -1,6 +1,10 @@
 #include "server.hpp"
 
-Server::Server()
+namespace tamandua {
+
+Server::Server() :
+	participant_manager_(*this),
+	group_manager_(*this)
 {
 }
 
@@ -24,7 +28,7 @@ SessionManager& Server::sessionManager()
 	return session_manager_;
 }
 
-ModuleManager& Server::moduleManager()
+/*ModuleManager& Server::moduleManager()
 {
 	return module_manager_;
 }
@@ -32,9 +36,6 @@ ModuleManager& Server::moduleManager()
 CommandInterpreter& Server::commandInterpreter()
 {
 	return command_interpreter_;
-}
+}*/
 
-void Server::processingThread()
-{
-	
 }

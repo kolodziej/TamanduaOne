@@ -1,12 +1,14 @@
 #ifndef TAMANDUA_SERVER_HPP
 #define TAMANDUA_SERVER_HPP
 
+#include <thread>
+
 #include "server_settings.hpp"
 #include "participant_manager.hpp"
 #include "group_manager.hpp"
 #include "session_manager.hpp"
-#include "module_manager.hpp"
-#include "command_interpreter.hpp"
+//#include "module_manager.hpp"
+//#include "command_interpreter.hpp"
 
 namespace tamandua {
 
@@ -17,8 +19,8 @@ class Server
 		ParticipantManager participant_manager_;
 		GroupManager group_manager_;
 		SessionManager session_manager_;
-		ModuleManager module_manager_;
-		CommandInterpreter command_interpreter_;
+		//ModuleManager module_manager_;
+		//CommandInterpreter command_interpreter_;
 
 		std::thread io_service_thread_;
 
@@ -30,8 +32,8 @@ class Server
 		ParticipantManager& participantManager();
 		GroupManager& groupManager();
 		SessionManager& sessionManager();
-		ModuleManager& moduleManager();
-		CommandInterpreter& commandInterpreter();
+		//ModuleManager& moduleManager();
+		//CommandInterpreter& commandInterpreter();
 
 };
 
