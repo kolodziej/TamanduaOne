@@ -1,6 +1,7 @@
 #include "participant_manager.hpp"
 
 #include "server.hpp"
+#include "participant.hpp"
 
 namespace tamandua {
 
@@ -8,12 +9,25 @@ ParticipantManager::ParticipantManager(Server& server) :
 	server_(server)
 {}
 
-void ParticipantManager::addParticipant(std::shared_ptr<Participant> participant)
+bool ParticipantManager::addParticipant(std::shared_ptr<Participant> participant)
 {
-	if (p.id_ == 0)
+	if (participant->id() == 0)
 	{
-		
+		participant->id_ = nextParticipantId_();
 	}
+	auto insertion = participants_.insert(std::make_pair(participant->id(), participant));
+	if (insertion.second == true)
+	{
+		auto insertion_id = participants_ids_.insert(std::make_pair(participant->name(), participant->id()));
+		if (insertion_id.second == true)
+		{
+			return true;
+		} else
+		{
+			// @todo: proper exception: insertion == true, insertion_id == false
+		}
+	}
+	return false;
 }
 
 bool ParticipantManager::isNameInUse(std::string name)
@@ -80,12 +94,13 @@ void ParticipantManager::setParticipantName_(std::shared_ptr<Participant> partic
 	}
 }
 
-ParticipantId ParticipantManager::nextParticipantId_()
+config::ParticipantId ParticipantManager::nextParticipantId_()
 {
 	while (participants_.find(++last_participant_id_) != participants_.end())
 	{
 		// empty body;
 	}
+	return last_participant_id_;
 }
 
 }

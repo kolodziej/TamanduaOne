@@ -21,6 +21,7 @@ class Participant :
 
 	public:
 		Participant(std::string = std::string(), config::ParticipantId = 0);
+		Participant(const Participant&) = delete;
 
 		config::ParticipantId id();
 		std::string name();

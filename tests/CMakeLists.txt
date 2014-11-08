@@ -21,3 +21,9 @@ target_link_libraries(message_composer "${LINK_LIBS}")
 
 add_executable(logger logger.cpp)
 target_link_libraries(logger "${LINK_LIBS}")
+
+add_executable(participant participant.cpp)
+target_link_libraries(participant "${LINK_LIBS}")
+
+add_executable(participant_manager participant_manager.cpp)
+target_link_libraries(participant_manager "${LINK_LIBS}")
