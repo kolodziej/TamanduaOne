@@ -4,6 +4,7 @@
 namespace tamandua { namespace config {
 
 const unsigned int participant_name_size = 40;
+const unsigned int group_name_size = 40;
 
 } }
 
