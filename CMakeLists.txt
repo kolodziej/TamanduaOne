@@ -28,6 +28,7 @@ set(LIBRARY_SOURCES
 	"src/participant_manager.cpp"
 	"src/group.cpp"
 	"src/server.cpp"
+	"src/group_manager.cpp"
 )
 
 set(PROTOCOL_HEADERS

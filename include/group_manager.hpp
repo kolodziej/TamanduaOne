@@ -9,6 +9,7 @@
 
 namespace tamandua {
 
+class Server;
 class Group;
 
 class GroupManager
