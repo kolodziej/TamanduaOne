@@ -4,7 +4,9 @@
 #include <deque>
 #include <thread>
 #include <mutex>
+#include <utility>
 #include <condition_variable>
+#include <memory>
 
 #include "config/tamandua_api.hpp"
 #include "config/message_types.hpp"
@@ -13,17 +15,19 @@ namespace tamandua {
 	
 class Server;
 class Message;
+class Participant;
 
 class TAMANDUA_API MessageManager
 {
+	typedef std::deque<std::pair<std::shared_ptr<Participant>, Message>> MessagesQueue;
 	private:
 		Server& server_;
-		std::deque<Message> process_queue_;
+		MessagesQueue process_queue_;
 		std::thread processing_thread_;
 		std::mutex process_queue_lock_;
 		std::condition_variable process_cv_;
 
-		std::deque<Message> send_queue_;
+		MessagesQueue send_queue_;
 		std::thread sending_thread_;
 		std::mutex send_queue_lock_;
 		std::condition_variable send_cv_;
@@ -38,8 +42,8 @@ class TAMANDUA_API MessageManager
 		MessageManager(const MessageManager&) = delete;
 
 		Server& server();
-		void processMessage(Message&);
-		void sendMessage(Message&);
+		void processMessage(std::shared_ptr<Participant>, Message&);
+		void sendMessage(std::shared_ptr<Participant>, Message&);
 
 		void processingThread();
 		void sendingThread();

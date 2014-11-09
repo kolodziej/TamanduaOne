@@ -30,6 +30,7 @@ set(LIBRARY_SOURCES
 	"src/group.cpp"
 	"src/server.cpp"
 	"src/group_manager.cpp"
+	"src/utility/time.cpp"
 )
 
 set(PROTOCOL_HEADERS
@@ -55,6 +56,7 @@ set(LIBRARY_HEADERS
 	"include/group.hpp"
 	"include/group_manager.hpp"
 	"include/session_manager.hpp"
+	"include/utility/time.hpp"
 )
 	add_library(tamandua_protocol STATIC ${PROTOCOL_HEADERS} ${PROTOCOL_SOURCES})
 		
