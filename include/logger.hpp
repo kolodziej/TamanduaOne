@@ -12,8 +12,6 @@
 
 namespace tamandua {
 
-class Log;
-
 class TAMANDUA_API Logger
 {
 	public:

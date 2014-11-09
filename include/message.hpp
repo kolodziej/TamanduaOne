@@ -1,8 +1,10 @@
 #ifndef TAMANDUA_MESSAGE_HPP
 #define TAMANDUA_MESSAGE_HPP
+
 #include <string>
-#include "message_header.hpp"
+
 #include "config/tamandua_api.hpp"
+#include "message_header.hpp"
 
 namespace tamandua {
 

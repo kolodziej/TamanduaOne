@@ -1,19 +1,20 @@
 #ifndef TAMANDUA_GROUP_HPP
 #define TAMANDUA_GROUP_HPP
 
-#include "config/group.hpp"
-#include "config/participant.hpp"
-
 #include <map>
 #include <string>
 #include <memory>
+
+#include "config/tamandua_api.hpp"
+#include "config/group.hpp"
+#include "config/participant.hpp"
 
 namespace tamandua {
 
 class Participant;
 class GroupManager;
 
-class Group :
+class TAMANDUA_API Group :
 	public std::enable_shared_from_this<Group>
 {
 	private:

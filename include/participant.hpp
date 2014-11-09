@@ -1,16 +1,17 @@
 #ifndef TAMANDUA_PARTICIPANT_HPP
 #define TAMANDUA_PARTICIPANT_HPP
 
-#include "config/participant.hpp"
-
 #include <string>
 #include <memory>
+
+#include "config/tamandua_api.hpp"
+#include "config/participant.hpp"
 
 namespace tamandua {
 
 class ParticipantManager;
 
-class Participant :
+class TAMANDUA_API Participant :
 	public std::enable_shared_from_this<Participant>
 {
 	private:

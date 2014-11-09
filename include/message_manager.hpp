@@ -1,19 +1,20 @@
 #ifndef TAMANDUA_MESSAGE_MANAGER_HPP
 #define TAMANDUA_MESSAGE_MANAGER_HPP
 
-#include "config/message_types.hpp"
-
 #include <deque>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+
+#include "config/tamandua_api.hpp"
+#include "config/message_types.hpp"
 
 namespace tamandua {
 	
 class Server;
 class Message;
 
-class MessageManager
+class TAMANDUA_API MessageManager
 {
 	private:
 		Server& server_;

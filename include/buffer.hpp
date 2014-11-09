@@ -1,6 +1,8 @@
 #ifndef TAMANDUA_BUFFER_HPP
 #define TAMANDUA_BUFFER_HPP
+
 #include <memory>
+
 #include "config/tamandua_api.hpp"
 
 namespace tamandua {

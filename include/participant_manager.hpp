@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 
+#include "config/tamandua_api.hpp"
 #include "config/participant.hpp"
 
 namespace tamandua {
@@ -13,7 +14,7 @@ namespace tamandua {
 class Server;
 class Participant;
 
-class ParticipantManager
+class TAMANDUA_API ParticipantManager
 {
 	private:
 		Server& server_;

@@ -2,7 +2,7 @@
 #define TAMANDUA_MESSAGE_COMPOSER_HPP
 #include <sstream>
 
-
+#include "config/tamandua_api.hpp"
 #include "config/message_types.hpp"
 #include "message_header.hpp"
 

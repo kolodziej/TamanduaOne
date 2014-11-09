@@ -5,6 +5,7 @@
 #include <string>
 #include <memory>
 
+#include "config/tamandua_api.hpp"
 #include "config/message_types.hpp"
 
 namespace tamandua {
@@ -12,7 +13,7 @@ namespace tamandua {
 class Server;
 class Group;
 
-class GroupManager
+class TAMANDUA_API GroupManager
 {
 	private:
 		Server& server_;

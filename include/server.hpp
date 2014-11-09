@@ -10,9 +10,11 @@
 //#include "module_manager.hpp"
 //#include "command_interpreter.hpp"
 
+#include "config/tamandua_api.hpp"
+
 namespace tamandua {
 
-class Server
+class TAMANDUA_API Server
 {
 	private:
 		ServerSettings settings_;
