@@ -6,6 +6,7 @@
 namespace tamandua {
 
 Group::Group(std::string name) :
+	id_(0),
 	name_(name)
 {}
 
