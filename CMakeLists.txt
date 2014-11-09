@@ -10,6 +10,7 @@ include_directories(
 
 add_subdirectory(gtest)
 
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/lib")
 set(CMAKE_CXX_FLAGS "-std=c++11")
 set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
@@ -60,6 +61,7 @@ set(LIBRARY_HEADERS
 if(NOT ONLY_PROTOCOL)
 	find_package(Boost 1.49 COMPONENTS system program_options regex REQUIRED)
 	find_package(OpenSSL 1.0.0 REQUIRED)
+	find_package(Crypto++)
 
 	add_library(tamandua STATIC ${PROTOCOL_HEADERS} ${LIBRARY_HEADERS} ${PROTOCOL_SOURCES} ${LIBRARY_SOURCES})
 
