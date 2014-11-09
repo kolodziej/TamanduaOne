@@ -12,7 +12,7 @@ include_directories(
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
-set(LINK_LIBS gtest gtest_main pthread tamandua)
+set(LINK_LIBS gtest gtest_main pthread tamandua cryptopp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/tests/bin")
 
@@ -33,3 +33,6 @@ target_link_libraries(group "${LINK_LIBS}")
 
 add_executable(group_manager group_manager.cpp)
 target_link_libraries(group_manager "${LINK_LIBS}")
+
+add_executable(user user.cpp)
+target_link_libraries(user "${LINK_LIBS}")
