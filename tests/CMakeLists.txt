@@ -27,3 +27,9 @@ target_link_libraries(participant "${LINK_LIBS}")
 
 add_executable(participant_manager participant_manager.cpp)
 target_link_libraries(participant_manager "${LINK_LIBS}")
+
+add_executable(group group.cpp)
+target_link_libraries(group "${LINK_LIBS}")
+
+add_executable(group_manager group_manager.cpp)
+target_link_libraries(group_manager "${LINK_LIBS}")
