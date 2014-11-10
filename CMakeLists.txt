@@ -33,6 +33,7 @@ set(LIBRARY_SOURCES
 	"src/utility/time.cpp"
 	"src/utility/crypto.cpp"
 	"src/user.cpp"
+	"src/command.cpp"
 )
 
 set(PROTOCOL_HEADERS
@@ -61,6 +62,7 @@ set(LIBRARY_HEADERS
 	"include/utility/time.hpp"
 	"include/utility/crypto.hpp"
 	"include/user.hpp"
+	"include/command.hpp"
 )
 	add_library(tamandua_protocol STATIC ${PROTOCOL_HEADERS} ${PROTOCOL_SOURCES})
 		
