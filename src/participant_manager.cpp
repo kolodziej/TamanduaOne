@@ -32,6 +32,28 @@ bool ParticipantManager::addParticipant(std::shared_ptr<Participant> participant
 	return false;
 }
 
+std::shared_ptr<Participant> ParticipantManager::participant(config::ParticipantId id)
+{
+	auto it = participants_.find(id);
+	if (it == participants_.end())
+	{
+		return nullptr;
+	}
+
+	return it->second;
+}
+
+std::shared_ptr<Participant> ParticipantManager::participant(std::string name)
+{
+	auto id_it = participants_ids_.find(name);
+	if (id_it == participants_ids_.end())
+	{
+		return nullptr;
+	}
+
+	return participant(id_it->second);
+}
+
 bool ParticipantManager::removeParticipant(std::shared_ptr<Participant> participant)
 {
 	if (participant == nullptr)

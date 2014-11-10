@@ -26,6 +26,8 @@ class TAMANDUA_API ParticipantManager
 	public:
 		ParticipantManager(Server&);
 		bool addParticipant(std::shared_ptr<Participant>);
+		std::shared_ptr<Participant> participant(config::ParticipantId);
+		std::shared_ptr<Participant> participant(std::string);
 		bool removeParticipant(std::shared_ptr<Participant>);
 		bool removeParticipant(config::ParticipantId);
 		bool removeParticipant(std::string);
