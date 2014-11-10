@@ -7,7 +7,9 @@ namespace tamandua {
 
 User::User(std::string name, std::string password, config::ParticipantId id) :
 	Participant(name, id),
-	registered_(false)
+	registered_(false),
+	created_date_(utility::utcTime()),
+	last_visit_date_(utility::utcTime())
 {
 	setPassword_(password);
 }
