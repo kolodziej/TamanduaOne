@@ -19,6 +19,7 @@ class TAMANDUA_API Participant :
 		std::string name_;
 		bool online_;
 		bool hidden_;
+		ParticipantManager* parent_manager_;
 
 	public:
 		Participant(std::string = std::string(), config::ParticipantId = 0);
@@ -42,6 +43,10 @@ class TAMANDUA_API Participant :
 		}
 
 	friend class ParticipantManager;
+
+	private:
+		void setParticipantManager_(ParticipantManager*);
+		void clearParticipantManager_();
 };
 
 }

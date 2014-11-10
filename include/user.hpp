@@ -11,6 +11,7 @@ class TAMANDUA_API User :
 	public Participant
 {
 	private:
+		bool registered_;
 		uint32_t created_date_;
 		uint32_t last_visit_date_;
 		std::string password_hash_;

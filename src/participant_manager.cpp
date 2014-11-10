@@ -1,5 +1,7 @@
 #include "participant_manager.hpp"
 
+#include <sstream>
+
 #include "server.hpp"
 #include "participant.hpp"
 
@@ -22,6 +24,7 @@ bool ParticipantManager::addParticipant(std::shared_ptr<Participant> participant
 		auto insertion_id = participants_ids_.insert(std::make_pair(participant->name(), participant->id()));
 		if (insertion_id.second == true)
 		{
+			participant->setParticipantManager_(this);
 			return true;
 		} else
 		{
@@ -72,6 +75,7 @@ bool ParticipantManager::removeParticipant(config::ParticipantId id)
 		participants_.erase(pt_it);
 		if (participants_ids_.erase(name))
 		{
+			pt_it->second->clearParticipantManager_();
 			return true;
 		} else
 		{
@@ -89,8 +93,12 @@ bool ParticipantManager::removeParticipant(std::string name)
 	{
 		config::ParticipantId id = pt_id_it->second;
 		participants_ids_.erase(pt_id_it);
-		if (participants_.erase(id))
+
+		auto pt_it = participants_.find(id);
+		if (pt_it != participants_.end())
 		{
+			pt_it->second->clearParticipantManager_();
+			participants_.erase(pt_it);
 			return true;
 		} else
 		{
@@ -156,10 +164,11 @@ void ParticipantManager::setParticipantId_(std::shared_ptr<Participant> particip
 
 void ParticipantManager::setParticipantName_(std::shared_ptr<Participant> participant)
 {
-	// get default name from server settings
+	std::stringstream name;
+	name << "p#" << participant->id();
 	if (participant->name_.empty())
 	{
-		participant->name_ = "Guest";
+		participant->name_ = name.str();;
 	} else
 	{
 		auto it = participants_ids_.find(participant->name_);

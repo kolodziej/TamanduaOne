@@ -8,7 +8,8 @@ Participant::Participant(std::string name, config::ParticipantId id) :
 	id_(id),
 	name_(name),
 	online_(false),
-	hidden_(false)
+	hidden_(false),
+	parent_manager_(nullptr)
 {}
 
 config::ParticipantId Participant::id()
@@ -54,6 +55,16 @@ void Participant::show()
 void Participant::hide()
 {
 	hidden_ = true;
+}
+
+void Participant::setParticipantManager_(ParticipantManager* manager)
+{
+	parent_manager_ = manager;
+}
+
+void Participant::clearParticipantManager_()
+{
+	parent_manager_ = nullptr;
 }
 
 }

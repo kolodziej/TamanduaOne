@@ -6,7 +6,8 @@
 namespace tamandua {
 
 User::User(std::string name, std::string password, config::ParticipantId id) :
-	Participant(name, id)
+	Participant(name, id),
+	registered_(false)
 {
 	setPassword_(password);
 }
