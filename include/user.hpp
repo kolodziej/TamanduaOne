@@ -25,7 +25,6 @@ class TAMANDUA_API User :
 	private:
 		void setPassword_(std::string);
 		std::string hashPassword_(std::string);
-		std::string encodeSHA256Hash_(std::string);
 };
 
 }
