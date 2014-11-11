@@ -66,14 +66,14 @@ set(LIBRARY_HEADERS
 )
 	add_library(tamandua_protocol STATIC ${PROTOCOL_HEADERS} ${PROTOCOL_SOURCES})
 		
-if(NOT ONLY_PROTOCOL)
+if(NOT ONLY_PROTOCOL OR NOT NOMAKE_TESTS)
 	find_package(Boost 1.49 COMPONENTS system program_options regex REQUIRED)
 	find_package(OpenSSL 1.0.0 REQUIRED)
-	find_package(Crypto++)
+	find_package(Crypto++ REQUIRED)
 
-	add_library(tamandua STATIC ${PROTOCOL_HEADERS} ${LIBRARY_HEADERS} ${PROTOCOL_SOURCES} ${LIBRARY_SOURCES} ${Crypto++_INCLUDE_DIRS} ${Crypto++_LIBRARY_DIRS})
+	add_library(tamandua STATIC ${PROTOCOL_HEADERS} ${LIBRARY_HEADERS} ${PROTOCOL_SOURCES} ${LIBRARY_SOURCES} ${Crypto++_INCLUDE_DIRS} ${Crypto++_LIBRARIES})
 
-endif(NOT ONLY_PROTOCOL)
+endif(NOT ONLY_PROTOCOL OR NOT NOMAKE_TESTS)
 
 if(NOT NOMAKE_TESTS)
 	add_subdirectory(tests)

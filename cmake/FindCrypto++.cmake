@@ -1,10 +1,10 @@
 # - Find Crypto++
 
-if(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
-   set(CRYPTO++_FOUND TRUE)
+if(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
+   set(Crypto++_FOUND TRUE)
 
-else(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
-  find_path(CRYPTO++_INCLUDE_DIR cryptlib.h
+else(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
+  find_path(Crypto++_INCLUDE_DIRS cryptlib.h
       /usr/include/crypto++
       /usr/include/cryptopp
       /usr/local/include/crypto++
@@ -14,7 +14,7 @@ else(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
       $ENV{SystemDrive}/Crypto++/include
       )
 
-  find_library(CRYPTO++_LIBRARIES NAMES cryptopp
+  find_library(Crypto++_LIBRARIES NAMES cryptopp
       PATHS
       /usr/lib
       /usr/local/lib
@@ -22,14 +22,18 @@ else(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
       $ENV{SystemDrive}/Crypto++/lib
       )
 
-  if(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
-    set(CRYPTO++_FOUND TRUE)
-    message(STATUS "Found Crypto++: ${CRYPTO++_INCLUDE_DIR}, ${CRYPTO++_LIBRARIES}")
-  else(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
-    set(CRYPTO++_FOUND FALSE)
-    message(STATUS "Crypto++ not found.")
-  endif(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
+  if(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
+    set(Crypto++_FOUND TRUE)
+    message(STATUS "Found Crypto++: ${Crypto++_INCLUDE_DIRS}, ${Crypto++_LIBRARIES}")
+  else(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
+    set(Crypto++_FOUND FALSE)
+		if (Crypto++_FIND_REQUIRED)
+			message(FATAL_ERROR "Crypto++ is required but not found!")
+		else(Crypto++_FIND_REQUIRED)
+ 	  	message(STATUS "Crypto++ not found.")
+		endif(Crypto++_FIND_REQUIRED)
+  endif(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
 
-  mark_as_advanced(CRYPTO++_INCLUDE_DIR CRYPTO++_LIBRARIES)
+  mark_as_advanced(Crypto++_INCLUDE_DIR Crypto++_LIBRARIES)
 
-endif(CRYPTO++_INCLUDE_DIR AND CRYPTO++_LIBRARIES)
+endif(Crypto++_INCLUDE_DIRS AND Crypto++_LIBRARIES)
