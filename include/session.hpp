@@ -4,6 +4,8 @@
 #include <deque>
 #include <memory>
 
+#include "config/tamandua_api.hpp"
+#include "config/session.hpp"
 #include "message.hpp"
 
 namespace tamandua {
@@ -11,7 +13,7 @@ namespace tamandua {
 class Server;
 class Participant;
 
-class Session
+class TAMANDUA_API Session
 {
 	private:
 		Server& server_;
