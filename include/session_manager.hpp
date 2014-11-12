@@ -15,13 +15,13 @@ class TAMANDUA_API SessionManager
 	private:
 		Server& server_;
 		std::map<config::SessionId, std::shared_ptr<Session>> sessions_;
-		boost::asio::ip::tcp::acceptor acceptor_;
+		boost::asio::ip::tcp::acceptor& acceptor_;
 		unsigned int max_session_num_;
 		config::SessionId last_session_id_;
 		bool accepting_;
 
 	public:
-		SessionManager(Server&);
+		SessionManager(Server&, boost::asio::ip::tcp::acceptor&, unsigned int = 2000);
 		SessionManager(const SessionManager&) = delete;
 
 		bool closeSession(config::SessionId);
