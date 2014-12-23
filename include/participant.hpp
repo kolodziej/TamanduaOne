@@ -14,39 +14,39 @@ class ParticipantManager;
 class TAMANDUA_API Participant :
 	public std::enable_shared_from_this<Participant>
 {
-	private:
-		config::ParticipantId id_;
-		std::string name_;
-		bool online_;
-		bool hidden_;
-		ParticipantManager* parent_manager_;
+private:
+	config::ParticipantId id_;
+	std::string name_;
+	bool online_;
+	bool hidden_;
+	ParticipantManager* parent_manager_;
 
-	public:
-		Participant(std::string = std::string(), config::ParticipantId = 0);
-		Participant(const Participant&) = delete;
+public:
+	Participant(std::string = std::string(), config::ParticipantId = 0);
+	Participant(const Participant&) = delete;
 
-		config::ParticipantId id();
-		std::string name();
-		void setName(std::string);
+	config::ParticipantId id();
+	std::string name();
+	void setName(std::string);
 
-		bool online();
-		void setOnline(bool = true);
-		
-		bool hidden();
-		bool shown();
-		void show();
-		void hide();
+	bool online();
+	void setOnline(bool = true);
+	
+	bool hidden();
+	bool shown();
+	void show();
+	void hide();
 
-		const config::ParticipantType type()
-		{
-			return config::Participant;
-		}
+	const config::ParticipantType type()
+	{
+		return config::Participant;
+	}
 
-	friend class ParticipantManager;
+friend class ParticipantManager;
 
-	private:
-		void setParticipantManager_(ParticipantManager*);
-		void clearParticipantManager_();
+private:
+	void setParticipantManager_(ParticipantManager*);
+	void clearParticipantManager_();
 };
 
 }

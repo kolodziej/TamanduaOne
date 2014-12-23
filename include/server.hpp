@@ -16,26 +16,26 @@ namespace tamandua {
 
 class TAMANDUA_API Server
 {
-	private:
-		ServerSettings settings_;
-		ParticipantManager participant_manager_;
-		GroupManager group_manager_;
-		SessionManager session_manager_;
-		//ModuleManager module_manager_;
-		//CommandInterpreter command_interpreter_;
+private:
+	ServerSettings settings_;
+	ParticipantManager participant_manager_;
+	GroupManager group_manager_;
+	SessionManager session_manager_;
+	//ModuleManager module_manager_;
+	//CommandInterpreter command_interpreter_;
 
-		std::thread io_service_thread_;
+	std::thread io_service_thread_;
 
-	public:
-		Server();
-		Server(const Server&) = delete;
+public:
+	Server();
+	Server(const Server&) = delete;
 
-		ServerSettings settings();
-		ParticipantManager& participantManager();
-		GroupManager& groupManager();
-		SessionManager& sessionManager();
-		//ModuleManager& moduleManager();
-		//CommandInterpreter& commandInterpreter();
+	ServerSettings settings();
+	ParticipantManager& participantManager();
+	GroupManager& groupManager();
+	SessionManager& sessionManager();
+	//ModuleManager& moduleManager();
+	//CommandInterpreter& commandInterpreter();
 
 };
 

@@ -15,19 +15,19 @@ class Participant;
 
 class TAMANDUA_API Session
 {
-	private:
-		Server& server_;
-		config::SslSocketStream socket_;
-		std::deque<Message> received_messages_;
-		std::deque<Message> messages_to_send_;
-		std::shared_ptr<Participant> participant_;
+private:
+	Server& server_;
+	config::SslSocketStream socket_;
+	std::deque<Message> received_messages_;
+	std::deque<Message> messages_to_send_;
+	std::shared_ptr<Participant> participant_;
 
-	public:
-		Session();
-		Session(const Session&) = delete;
-		
-		Server& server();
-		config::SslSocketStream& socket();
+public:
+	Session();
+	Session(const Session&) = delete;
+	
+	Server& server();
+	config::SslSocketStream& socket();
 
 
 };

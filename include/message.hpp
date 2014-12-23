@@ -13,22 +13,22 @@ class Buffer;
 
 class TAMANDUA_API Message
 {
-	private:
-		MessageHeader header_;
-		std::string body_;
+private:
+	MessageHeader header_;
+	std::string body_;
 
-	public:
-		Message();
-		Message(MessageComposer &);
-		Message(const MessageHeader&, std::string);
+public:
+	Message();
+	Message(MessageComposer &);
+	Message(const MessageHeader&, std::string);
 
-		MessageHeader& header();
-		std::string body();
-		void setHeader(const MessageHeader&);
-		void setBody(std::string);
-		void headerFromBuffer(Buffer);
-		void bodyFromBuffer(Buffer);
-		Buffer toBuffer();
+	MessageHeader& header();
+	std::string body();
+	void setHeader(const MessageHeader&);
+	void setBody(std::string);
+	void headerFromBuffer(Buffer);
+	void bodyFromBuffer(Buffer);
+	Buffer toBuffer();
 };
 
 }

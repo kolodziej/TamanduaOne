@@ -12,18 +12,18 @@ class Message;
 
 class TAMANDUA_API MessageComposer
 {
-	private:
-		MessageHeader header_;
-		std::stringstream body_stream_;
+private:
+	MessageHeader header_;
+	std::stringstream body_stream_;
 
-	public:
-		MessageComposer(config::MessageType, config::ParticipantId = 0, std::string = std::string(), config::GroupId = 0);
-		MessageComposer(config::MessageType, std::string, config::ParticipantId = 0, std::string = std::string(), config::GroupId = 0);
+public:
+	MessageComposer(config::MessageType, config::ParticipantId = 0, std::string = std::string(), config::GroupId = 0);
+	MessageComposer(config::MessageType, std::string, config::ParticipantId = 0, std::string = std::string(), config::GroupId = 0);
 
-		template <typename Data>
-		MessageComposer& operator<<(Data data);
+	template <typename Data>
+	MessageComposer& operator<<(Data data);
 
-		Message message();
+	Message message();
 };
 
 }
