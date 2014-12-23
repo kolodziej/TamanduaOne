@@ -6,7 +6,7 @@ namespace tamandua { namespace config {
 
 typedef uint16_t GroupId;
 
-enum GroupType : uint8_t
+enum class GroupType : uint8_t
 {
 	Group = 0,
 	Room = 1,

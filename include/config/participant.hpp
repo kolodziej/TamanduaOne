@@ -6,7 +6,7 @@ namespace tamandua { namespace config {
 
 typedef uint32_t ParticipantId;
 
-enum ParticipantType : uint8_t
+enum class ParticipantType : uint8_t
 {
 	Participant = 0,
 	HiddenParticipant = 1,
