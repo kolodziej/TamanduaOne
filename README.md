@@ -1,9 +1,8 @@
-TamanduaOne
-===========
+# TamanduaOne
 
-Standarized Tamandua server and protocol
+Tamandua is a server for TCP/UDP communication
 
-Tamandua remake
+## TMND
 ---------------
 
-I've decided to change a bit project of **TamanduaOne**. In *remake* branch you will be able to notice these changes. When they will be finished  *remake* branch will be merged with *master*.
+**TMND** description soon.
